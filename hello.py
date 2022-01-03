@@ -17,10 +17,10 @@ def hello():
     return "Hello World!"
 
 
-@app.route("/cats")
+@app.route("/cats/all")
 def cats():
     # json.dump()
-    return jsonify({})
+    return jsonify(cats)
 
 
 @app.route("/<slug>")
@@ -32,8 +32,8 @@ def cats_slug(slug):
     return jsonify(cat)
 
 
-@app.route('/name')
-def hello():
+@app.route('/name/test')
+def test_name():
     name = request.args.get("name", "World")
     return f'Hello, {escape(name)}!'
 
