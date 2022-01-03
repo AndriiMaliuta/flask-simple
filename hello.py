@@ -6,10 +6,9 @@ app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///cat.db"
 db.init_app(app)
 cats = {
-    "cats": [
-        {"name": "Simba", "age": 6}
-    ]
+    "name": "Simba", "age": 6
 }
+
 
 
 @app.route("/")
@@ -29,7 +28,7 @@ def cats_slug(slug):
         cat = cats[slug]
     except KeyError:
         abort(404)
-    return jsonify(cat)
+    return jsonify(cats)
 
 
 @app.route('/name/test')
